@@ -3,8 +3,8 @@
 // Definitions by: Jim Buck <http://github.com/jimmyboh>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-/// <reference path="../inquirer/inquirer.d.ts" />
-/// <reference path="../minimist/minimist.d.ts" />
+/// <reference types="inquirer" />
+/// <reference types="minimist" />
 
 import {} from 'inquirer';
 import {ParsedArgs} from 'minimist';
