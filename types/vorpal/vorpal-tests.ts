@@ -1,6 +1,6 @@
-///<reference path="./vorpal.d.ts"/>
+///<reference types="vorpal"/>
 
-import {Vorpal} from './vorpal';
+import {Vorpal, VorpalInstance} from 'vorpal';
 
 declare namespace app {
     function execSQL(...args: any[]): PromiseLike<any>;
@@ -36,15 +36,15 @@ vorpal
 
 // Show (multiple instances)
 
-var instances = [];
+var instances : VorpalInstance[] = [];
 for (var i = 0; i < 3; ++i) {
-    instances[i] = new Vorpal()
-        .delimiter('instance' + i + '~$')
+    instances[i] = new Vorpal().delimiter('instance' + i + '~$')
+    instances[i]
         .command('switch <instance>', 'Switches prompt to another instance.')
         .action(function (args, cb) {
             instances[args.instance].show();
             cb();
-        })
+        });
 }
 
 instances[0].show();
